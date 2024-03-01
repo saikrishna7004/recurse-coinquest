@@ -96,10 +96,13 @@ const ProfilePage = () => {
                     </span>
                 </div>
             </div>
-            <div className="row mt-4 justify-content-center">
+            <div className="row my-4 justify-content-center">
                 <div className="col-md-4">
                     <QRCode style={{border: '3px solid white'}} value={qrValue} renderAs="svg" />
                 </div>
+            </div>
+            <div className="mt-4 justify-content-center">
+                <Link className='button' target='_blank' href={'https://chat.whatsapp.com/Kctnl0QZDOYGjMRGloDHmA'}>Join WhatsApp Community Here</Link>
             </div>
         </div>
     );
