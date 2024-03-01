@@ -47,9 +47,9 @@ const Events = () => {
     return (
         <div className="container">
             <Head>
-                <title>Events - CoinQuest</title>
+                <title>Side Quests - CoinQuest</title>
             </Head>
-            <h1 className="my-4">Events</h1>
+            <h1 className="my-4">Side Quests</h1>
             {session && session.user && session.user.admin && (
                 <div className='mb-4 pb-2 ps-1'>
                     <Link href='/admin/events' className="button mb-4">Add Event</Link>

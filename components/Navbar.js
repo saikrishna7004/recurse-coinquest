@@ -16,23 +16,23 @@ const Navbar = () => {
     const router = useRouter();
     const { data: session, status } = useSession();
 
-    useEffect(() => {
-        if (status !== 'loading') fetchCoins();
-    }, [status]);
+    // useEffect(() => {
+    //     if (status !== 'loading') fetchCoins();
+    // }, [status]);
 
-    const fetchCoins = async () => {
-        try {
-            const response = await fetch(`/api/coins/${session?.user?._id}`);
-            if (response.ok) {
-                const data = await response.json();
-                setCoins(data.coins);
-            } else {
-                console.error('Failed to fetch user coins');
-            }
-        } catch (error) {
-            console.error('Error fetching user coins:', error);
-        }
-    };
+    // const fetchCoins = async () => {
+    //     try {
+    //         const response = await fetch(`/api/coins/${session?.user?._id}`);
+    //         if (response.ok) {
+    //             const data = await response.json();
+    //             setCoins(data.coins);
+    //         } else {
+    //             console.error('Failed to fetch user coins');
+    //         }
+    //     } catch (error) {
+    //         console.error('Error fetching user coins:', error);
+    //     }
+    // };
 
     const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
@@ -55,10 +55,10 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <NavLink href="/" className="nav-link">Home</NavLink>
                             </li>
-                            {session && <>
+                            {/* {session && <>
                                 <li className="nav-item">
                                     <NavLink href="/hunt" className="nav-link">Hunt</NavLink>
-                                </li></>}
+                                </li></>} */}
                             {session && session.user.admin && <>
                                 <li className="nav-item">
                                     <NavLink href="/admin/update-coins" className="nav-link">Update Coins</NavLink>
@@ -67,12 +67,12 @@ const Navbar = () => {
                                     <NavLink href="/admin/attendance" className="nav-link">Attendance</NavLink>
                                 </li>
                             </>}
-                            <li className="nav-item">
-                                <NavLink href="/events" className="nav-link">Events</NavLink>
+                            {/* <li className="nav-item">
+                                <NavLink href="/events" className="nav-link">Side Quest</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink href="/leaderboard" className="nav-link">Leaderboard</NavLink>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                     <div className='me-4 my-2'>
@@ -89,10 +89,10 @@ const Navbar = () => {
                     </div>}
                 </div>
             </nav>
-            <span className="coin-count">
+            {/* <span className="coin-count">
                 <img src="/gold.svg" alt="Coins" height={25} style={{ marginRight: '10px' }} />
                 <p>{coins}</p>
-            </span>
+            </span> */}
         </>
     );
 };

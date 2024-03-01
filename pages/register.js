@@ -44,6 +44,7 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(formData)
         try {
             const response = await fetch('/api/register', {
                 method: 'POST',
@@ -52,6 +53,7 @@ const Register = () => {
                 },
                 body: JSON.stringify(formData),
             });
+            console.log(response)
             if (response.ok) {
                 Swal.fire({
                     icon: 'success',
@@ -160,18 +162,14 @@ const Register = () => {
                     />
                 </div>
                 <div>
-                    <select
-                        id="ideathonParticipant"
-                        name="ideathonParticipant"
-                        className='input'
-                        value={formData.ideathonParticipant}
-                        onChange={handleChange}
-                        required
-                    >
-                        <option value={false}>--Select--</option>
-                        <option value={true}>Code Auction + Side Quest + Treasure Hunt</option>
-                        <option value={false}>Side Quest + Treasure Hunt</option>
-                    </select>
+                <input
+                    type="checkbox"
+                    id="ideathonParticipant"
+                    name="ideathonParticipant"
+                    checked={formData.ideathonParticipant}
+                    onChange={(e) => setFormData({ ...formData, ideathonParticipant: e.target.checked })}
+                />
+                <label htmlFor="ideathonParticipant">&nbsp;Participating in Code Auction?</label>
                 </div>
                 <button className='button my-3' type="submit">Register</button>
             </form>
