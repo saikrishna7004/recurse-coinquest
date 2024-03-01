@@ -2,6 +2,7 @@ import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import QRCode from 'qrcode.react';
+import Head from 'next/head';
 
 const ProfilePage = () => {
     const { data: session, status } = useSession();
@@ -42,6 +43,9 @@ const ProfilePage = () => {
     if (!session) {
         return (
             <div className='container text-center'>
+                <Head>
+                    <title>Home - CoinQuest</title>
+                </Head>
                 <h1>Welcome to the Recurse Coin Quest!</h1>
                 <div className='my-4 py-3'>
                     <Link href="/register" className="button my-3 me-3">Register</Link>
@@ -53,6 +57,9 @@ const ProfilePage = () => {
 
     return (
         <div className="container text-center">
+            <Head>
+                <title>Home - CoinQuest</title>
+            </Head>
             <h3 className="my-4">Welcome back, {session.user.name}!</h3>
             <div className="row mt-3">
                 <div className="col-md-6">

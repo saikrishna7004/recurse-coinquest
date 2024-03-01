@@ -1,4 +1,5 @@
 import { useSession } from 'next-auth/react';
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
 const Leaderboard = () => {
@@ -31,6 +32,9 @@ const Leaderboard = () => {
 
     return (
         <div className="container">
+            <Head>
+                <title>Leaderboard - CoinQuest</title>
+            </Head>
             <h2 className="my-4">Leaderboard</h2>
             <div style={{overflow: 'auto'}}>
                 <table className="table table-dark">

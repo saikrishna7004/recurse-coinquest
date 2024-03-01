@@ -1,4 +1,5 @@
 import { useSession } from 'next-auth/react';
+import Head from 'next/head';
 import { useState, useEffect } from 'react';
 
 const AdminEventsPage = () => {
@@ -69,6 +70,9 @@ const AdminEventsPage = () => {
 
     return (
         <div className="container">
+            <Head>
+                <title>Events Edit - CoinQuest</title>
+            </Head>
             <h1 className="my-4">Admin Events</h1>
             <form className='my-3' onSubmit={handleAddEvent}>
                 <div className="mb-3">

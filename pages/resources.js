@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React, { useState } from 'react';
 
 const Resources = () => {
@@ -48,6 +49,9 @@ const Resources = () => {
 
     return (
         <div className="container">
+            <Head>
+                <title>Resources - CoinQuest</title>
+            </Head>
             <h1 className="text-center">Resources</h1>
             <div className="tabs">
                 <button className={(tab === 'online' ? 'active ' : '') + 'button mx-2'} onClick={() => setTab('online')}>Online</button>

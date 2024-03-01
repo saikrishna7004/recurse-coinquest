@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 import Confetti from 'react-confetti';
 import { useSession } from 'next-auth/react';
+import Head from 'next/head';
 
 const TreasureHuntPage = () => {
     const [code, setCode] = useState('');
@@ -38,6 +39,9 @@ const TreasureHuntPage = () => {
 
     return (
         <div className='container text-center'>
+            <Head>
+                <title>Treasure Hunt - CoinQuest</title>
+            </Head>
             <h2>Treasure Hunt</h2>
             <form onSubmit={handleSubmit}>
                 <div className='mt-4'>

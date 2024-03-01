@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSession } from 'next-auth/react';
+import Head from 'next/head';
 
 const UpdateCoinsPage = () => {
     const [questId, setQuestId] = useState('');
@@ -40,6 +41,9 @@ const UpdateCoinsPage = () => {
 
     return (
         <div className='container text-center'>
+            <Head>
+                <title>Update Coins - CoinQuest</title>
+            </Head>
             <h1>Update User Coins</h1>
             {message && <p style={{ color: 'green' }}>{message}</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}

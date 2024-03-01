@@ -1,4 +1,5 @@
 import { useSession } from 'next-auth/react';
+import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 
@@ -84,6 +85,9 @@ const AdminHintList = () => {
 
     return (
         <div className="container">
+            <Head>
+                <title>Treasure Hunt - CoinQuest</title>
+            </Head>
             <h2 className='my-4'>Add New Hint</h2>
             <div className="mb-3">
                 <input

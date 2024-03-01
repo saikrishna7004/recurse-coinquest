@@ -1,4 +1,5 @@
 import { useSession } from 'next-auth/react';
+import Head from 'next/head';
 import { useState } from 'react';
 
 const UpdateAttendance = () => {
@@ -41,6 +42,9 @@ const UpdateAttendance = () => {
 
     return (
         <div className='container text-center'>
+            <Head>
+                <title>Update Attendance - CoinQuest</title>
+            </Head>
             <h2>Update Event Attendance</h2>
             {acknowledged && <p style={{ color: 'green' }}>Attendance for Quest ID {questId} has been updated successfully.</p>}
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}

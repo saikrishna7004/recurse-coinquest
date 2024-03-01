@@ -1,4 +1,5 @@
 import { useSession } from 'next-auth/react';
+import Head from 'next/head';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -45,6 +46,9 @@ const Events = () => {
 
     return (
         <div className="container">
+            <Head>
+                <title>Events - CoinQuest</title>
+            </Head>
             <h1 className="my-4">Events</h1>
             {session && session.user && session.user.admin && (
                 <div className='mb-4 pb-2 ps-1'>

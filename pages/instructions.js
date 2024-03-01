@@ -1,9 +1,13 @@
 // pages/instructions.js
+import Head from 'next/head';
 import React from 'react';
 
 const InstructionsPage = () => {
     return (
         <div className="instructions-container">
+            <Head>
+                <title>Instructions - CoinQuest</title>
+            </Head>
             <h1 className="instructions-title">Instructions</h1>
             <div className="instructions-content">
                 <p>

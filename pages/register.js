@@ -1,4 +1,5 @@
 // pages/register.js
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
@@ -58,6 +59,9 @@ const Register = () => {
 
     return (
         <div className='container text-center'>
+            <Head>
+                <title>Register - CoinQuest</title>
+            </Head>
             <h1>Register</h1>
             <form className='my-3' onSubmit={handleSubmit}>
                 <div>

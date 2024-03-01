@@ -1,4 +1,5 @@
 import { useSession } from "next-auth/react";
+import Head from "next/head";
 import Link from "next/link";
 
 const TreasureHunt = () => {
@@ -6,6 +7,9 @@ const TreasureHunt = () => {
 
     return (
         <div className="container text-center">
+            <Head>
+                <title>Treasure Hunt - CoinQuest</title>
+            </Head>
             <h3>Treasure Hunt Hints</h3>
             <div className="my-4">
                 <p className="my-3">Hi, hunter! Welcome to the Treasure Hunt. </p>
