@@ -6,7 +6,10 @@ export default async function hintListHandler(req, res) {
         await connectMongo();
 
         try {
-            const hints = await Hint.find({});
+            const hints = await Hint.find({}).populate({
+                path: 'solvedBy',
+                select: 'username name'
+            });
             res.status(200).json(hints);
         } catch (error) {
             console.error('Error fetching hints:', error);
@@ -17,7 +20,7 @@ export default async function hintListHandler(req, res) {
         await connectMongo();
 
         try {
-            const newHint = new Hint({ hintId, answer });
+            const newHint = new Hint({ hintId, answer, enabled: false });
             await newHint.save();
             res.status(201).json(newHint);
         } catch (error) {

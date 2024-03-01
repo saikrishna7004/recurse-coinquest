@@ -83,6 +83,31 @@ const AdminHintList = () => {
         }
     };
 
+    const handleToggleHintStatus = async (hintId) => {
+        try {
+            const response = await fetch(`/api/admin/hints/${hintId}/toggle`, {
+                method: 'PUT',
+            });
+            if (response.ok) {
+                const updatedHints = hints.map(hint => {
+                    if (hint.hintId === hintId) {
+                        hint.enabled = !hint.enabled;
+                    }
+                    return hint;
+                });
+                setHints(updatedHints);
+                Swal.fire('Success', 'Hint status toggled successfully', 'success');
+            } else {
+                const data = await response.json();
+                console.error('Failed to toggle hint status:', data.error);
+                Swal.fire('Error', 'Failed to toggle hint status', 'error');
+            }
+        } catch (error) {
+            console.error('Error toggling hint status:', error);
+            Swal.fire('Error', 'Internal server error', 'error');
+        }
+    };
+
     return (
         <div className="container">
             <Head>
@@ -110,7 +135,7 @@ const AdminHintList = () => {
                     placeholder='Answer'
                     required
                 />
-        <button className="button" onClick={handleAddHint}>Add Hint</button>
+                <button className="button" onClick={handleAddHint}>Add Hint</button>
             </div>
             <h2 className='my-4'>Hint List</h2>
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
@@ -119,6 +144,7 @@ const AdminHintList = () => {
                     <tr>
                         <th>Hint ID</th>
                         <th>Answer</th>
+                        <th>Solved By</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -127,8 +153,12 @@ const AdminHintList = () => {
                         <tr key={index}>
                             <td>{hint.hintId}</td>
                             <td>{hint.answer}</td>
+                            <td>{hint.solvedBy?.name}</td>
                             <td>
-                                <button className="btn btn-danger" onClick={() => handleDeleteHint(hint.hintId)}>Delete</button>
+                                <button className="btn btn-danger me-2 my-2" onClick={() => handleDeleteHint(hint.hintId)}>Delete</button>
+                                <button className={`btn ${hint.enabled ? 'btn-success' : 'btn-warning'} my-2`} onClick={() => handleToggleHintStatus(hint.hintId)}>
+                                    {hint.enabled ? 'Disable' : 'Enable'}
+                                </button>
                             </td>
                         </tr>
                     ))}

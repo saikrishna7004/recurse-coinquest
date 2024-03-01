@@ -14,6 +14,10 @@ const hintSchema = new mongoose.Schema({
         ref: 'User',
         default: null,
     },
+    enabled: {
+        type: Boolean,
+        default: false,
+    }
 });
 
 const Hint = mongoose.models.Hint || mongoose.model('Hint', hintSchema);

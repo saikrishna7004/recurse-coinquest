@@ -1,5 +1,5 @@
-import connectMongo from '../../../../utils/connectMongo';
-import Hint from '../../../../models/Hint';
+import connectMongo from '../../../../../utils/connectMongo';
+import Hint from '../../../../../models/Hint';
 
 export default async function hintDeleteHandler(req, res) {
     if (req.method === 'DELETE') {

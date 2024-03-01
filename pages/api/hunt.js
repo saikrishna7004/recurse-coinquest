@@ -13,6 +13,10 @@ export default async function hintSubmissionHandler(req, res) {
                 return res.status(400).json({ error: 'Hint not found' });
             }
 
+            if (!existingHint.enabled) {
+                return res.status(400).json({ error: 'Hint not started' });
+            }
+
             if (existingHint.solvedBy) {
                 return res.status(400).json({ error: 'Hint already solved' });
             }
