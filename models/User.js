@@ -9,9 +9,7 @@ const userSchema = new mongoose.Schema(
             required: true,
         },
         questId: {
-            type: String,
-            unique: true,
-            required: true,
+            type: Number,
         },
         name: {
             type: String,
@@ -29,7 +27,21 @@ const userSchema = new mongoose.Schema(
         section: {
             type: String,
             required: true,
-            enum: [1, 2, 3, 4],
+            enum: [
+                'CSE A',
+                'CSE B',
+                'CSE C',
+                'CSE D',
+                'CSE E',
+                'CSE F',
+                'CSE G',
+                'CSM A',
+                'CSM B',
+                'CSM C',
+                'IT A',
+                'IT B',
+                'CSD',
+            ],
         },
         mobile: {
             type: String,

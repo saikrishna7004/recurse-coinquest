@@ -7,6 +7,22 @@ import Swal from 'sweetalert2';
 const Register = () => {
     const router = useRouter();
 
+    const sections = [
+        'CSE A',
+        'CSE B',
+        'CSE C',
+        'CSE D',
+        'CSE E',
+        'CSE F',
+        'CSE G',
+        'CSM A',
+        'CSM B',
+        'CSM C',
+        'IT A',
+        'IT B',
+        'CSD',
+    ];
+
     const [formData, setFormData] = useState({
         username: '',
         name: '',
@@ -117,16 +133,19 @@ const Register = () => {
                     </select>
                 </div>
                 <div>
-                    <input
-                        type="text"
+                    <select
                         id="section"
                         name="section"
                         className='input'
-                        placeholder='Branch and Section'
                         value={formData.section}
                         onChange={handleChange}
                         required
-                    />
+                    >
+                        <option value="">Select Section</option>
+                        {sections.map((section, index) => (
+                            <option key={index} value={section}>{section}</option>
+                        ))}
+                    </select>
                 </div>
                 <div>
                     <input

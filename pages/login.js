@@ -34,10 +34,13 @@ const Login = ({login}) => {
             callbackUrl: next
         })
         setProgress(70)
+        console.log(res)
         if(!res.ok){
             console.log(res.error)
             if(res.error=='CredentialsSignin')
                 Swal.fire("Invalid", "Invalid Username or Password", 'error')
+            else
+                Swal.fire("Error", "Internal Server Error", 'error')
         }
         else{
             router.push(next)

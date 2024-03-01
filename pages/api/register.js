@@ -14,6 +14,10 @@ export default async function registerHandler(req, res) {
                 return res.status(400).json({ error: 'User already exists' });
             }
 
+            const userCount = await User.countDocuments();
+
+            const newQuestId = `${userCount + 1}`;
+
             const newUser = new User({
                 username,
                 name,
@@ -21,7 +25,8 @@ export default async function registerHandler(req, res) {
                 year,
                 section,
                 mobile,
-                ideathonParticipant
+                ideathonParticipant,
+                questId: newQuestId
             });
 
             await newUser.save();
