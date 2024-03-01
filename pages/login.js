@@ -59,7 +59,7 @@ const Login = ({login}) => {
                     <Image className="mb-2" src='/recurse logo white.png' alt="Logo" width={265} height={140} />
                     <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
                     <div className="my-2">
-                        <input type="text" name="username" className="input" id="username" placeholder="Username" value={username} onChange={e => setusername(e.target.value.toUpperCase())} autoComplete="username" />
+                        <input type="text" name="username" className="input" id="username" placeholder="Roll No." value={username} onChange={e => setusername(e.target.value.toUpperCase())} autoComplete="username" />
                         <input type="password" name="password" className="input" id="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} autoComplete="current-password" />
                     </div>
 
