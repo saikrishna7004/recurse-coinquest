@@ -62,34 +62,34 @@ const ProfilePage = () => {
             </Head>
             <h3 className="my-4">Welcome back, {session.user.name}!</h3>
             <div className="row mt-3">
-                <div className="col-md-6">
+                <div className="col-6">
                     <span className="d-flex align-items-center justify-content-end">Roll No. :</span>
                 </div>
-                <div className="col-md-6">
+                <div className="col-6">
                     <span className="d-flex align-items-center justify-content-start">{session.user.username}</span>
                 </div>
             </div>
             <div className="row mt-3">
-                <div className="col-md-6">
+                <div className="col-6">
                     <span className="d-flex align-items-center justify-content-end">Quest ID :</span>
                 </div>
-                <div className="col-md-6">
+                <div className="col-6">
                     <span className="d-flex align-items-center justify-content-start">{session.user.questId}</span>
                 </div>
             </div>
             <div className="row mt-3">
-                <div className="col-md-6">
+                <div className="col-6">
                     <span className="d-flex align-items-center justify-content-end">Year :</span>
                 </div>
-                <div className="col-md-6">
+                <div className="col-6">
                     <span className="d-flex align-items-center justify-content-start">{session.user.year}</span>
                 </div>
             </div>
             <div className="row mt-3">
-                <div className="col-md-6">
+                <div className="col-6">
                     <span className="d-flex align-items-center justify-content-end">Coins :</span>
                 </div>
-                <div className="col-md-6">
+                <div className="col-6">
                     <span className="d-flex align-items-center justify-content-start">
                         <img src="/gold.svg" alt="Coins" height={25} />
                         <span className="ms-1">{coins}</span>
