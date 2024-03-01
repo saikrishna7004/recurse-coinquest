@@ -1,19 +1,19 @@
 // pages/register.js
-import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 
 const Register = () => {
     const router = useRouter();
-    const { data: session } = useSession();
 
     const [formData, setFormData] = useState({
         username: '',
         name: '',
         password: '',
         year: '',
-        questId: ''
+        section: '',
+        mobile: '',
+        ideathonParticipant: false
     });
 
     const handleChange = (e) => {
@@ -56,12 +56,6 @@ const Register = () => {
         }
     };
 
-    if (!session || !session.user.admin) {
-        return <div className='container text-center'>
-            Disabled for now.
-        </div>;
-    }
-
     return (
         <div className='container text-center'>
             <h1>Register</h1>
@@ -103,18 +97,6 @@ const Register = () => {
                     />
                 </div>
                 <div>
-                    <input
-                        type="text"
-                        id="questId"
-                        name="questId"
-                        className='input'
-                        placeholder='Quest ID'
-                        value={formData.questId}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div>
                     <select
                         id="year"
                         name="year"
@@ -128,6 +110,44 @@ const Register = () => {
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
+                    </select>
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        id="section"
+                        name="section"
+                        className='input'
+                        placeholder='Branch and Section'
+                        value={formData.section}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        id="mobile"
+                        name="mobile"
+                        className='input'
+                        placeholder='Mobile'
+                        value={formData.mobile}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div>
+                    <select
+                        id="ideathonParticipant"
+                        name="ideathonParticipant"
+                        className='input'
+                        value={formData.ideathonParticipant}
+                        onChange={handleChange}
+                        required
+                    >
+                        <option value={false}>--Select--</option>
+                        <option value={true}>Code Auction + Side Quest + Treasure Hunt</option>
+                        <option value={false}>Side Quest + Treasure Hunt</option>
                     </select>
                 </div>
                 <button className='button my-3' type="submit">Register</button>

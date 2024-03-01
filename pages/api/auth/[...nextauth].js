@@ -39,8 +39,9 @@ const authOptions = {
                 token.username = user.username
                 token.name = user.name
                 token.year = user.year
+                token.section = user.section
+                token.mobile = user.mobile
                 token.ideathonParticipant = user.ideathonParticipant
-                token.ideathonTeamId = user.ideathonTeamId
                 token.admin = user.admin
                 token.questId = user.questId
             }
@@ -52,8 +53,9 @@ const authOptions = {
             session.user.username = token.username
             session.user.name = token.name
             session.user.year = token.year
+            session.user.section = token.section
+            session.user.mobile = token.mobile
             session.user.ideathonParticipant = token.ideathonParticipant
-            session.user.ideathonTeamId = token.ideathonTeamId
             session.user.admin = token.admin
             session.user.questId = token.questId
             return session

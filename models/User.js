@@ -26,13 +26,18 @@ const userSchema = new mongoose.Schema(
             required: true,
             enum: [1, 2, 3, 4],
         },
+        section: {
+            type: String,
+            required: true,
+            enum: [1, 2, 3, 4],
+        },
+        mobile: {
+            type: String,
+            required: true,
+        },
         ideathonParticipant: {
             type: Boolean,
             default: false,
-        },
-        ideathonTeamId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Team',
         },
         coins: {
             type: Number,
