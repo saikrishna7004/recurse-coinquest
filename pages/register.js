@@ -30,7 +30,7 @@ const Register = () => {
         year: '',
         section: '',
         mobile: '',
-        ideathonParticipant: false
+        ideathonParticipant: true
     });
 
     const handleChange = (e) => {
@@ -38,7 +38,7 @@ const Register = () => {
         const updatedValue = name === 'username' ? value.toUpperCase() : value;
         setFormData((prevData) => ({
             ...prevData,
-            [name]: updatedValue,
+            [name]: name === 'ideathonParticipant' ? (value === 'true') : updatedValue,
         }));
     };
 
@@ -162,14 +162,18 @@ const Register = () => {
                     />
                 </div>
                 <div>
-                <input
-                    type="checkbox"
-                    id="ideathonParticipant"
-                    name="ideathonParticipant"
-                    checked={formData.ideathonParticipant}
-                    onChange={(e) => setFormData({ ...formData, ideathonParticipant: e.target.checked })}
-                />
-                <label htmlFor="ideathonParticipant">&nbsp;Participating in Code Auction?</label>
+                    <label htmlFor="ideathonParticipant">Choose one: &nbsp;</label><br />
+                    <select
+                        id="ideathonParticipant"
+                        name="ideathonParticipant"
+                        className='input'
+                        value={formData.ideathonParticipant}
+                        onChange={handleChange}
+                        required
+                    >
+                        <option value={true}>Code Auction+Side Quest+Hunt</option>
+                        <option value={false}>Side Quest+Treasure Hunt</option>
+                    </select>
                 </div>
                 <button className='button my-3' type="submit">Register</button>
             </form>
