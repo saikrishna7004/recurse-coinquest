@@ -64,6 +64,14 @@ const ProfilePage = () => {
             </div>
             <div className="row mt-3">
                 <div className="col-md-6">
+                    <span className="d-flex align-items-center justify-content-end">Quest ID :</span>
+                </div>
+                <div className="col-md-6">
+                    <span className="d-flex align-items-center justify-content-start">{session.user.questId}</span>
+                </div>
+            </div>
+            <div className="row mt-3">
+                <div className="col-md-6">
                     <span className="d-flex align-items-center justify-content-end">Coins :</span>
                 </div>
                 <div className="col-md-6">

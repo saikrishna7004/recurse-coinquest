@@ -5,21 +5,21 @@ import Attendance from '../../../models/Attendance';
 
 export default async function attendanceHandler(req, res) {
     if (req.method === 'POST') {
-        const { username, eventId } = req.body;
+        const { questId, eventId } = req.body;
 
-        if (!username || !eventId) {
+        if (!questId || !eventId) {
             return res.status(400).json({ error: 'Username and event ID are required' });
         }
 
         await connectMongo();
 
         try {
-            const existingAttendance = await Attendance.findOne({ username, eventId });
+            const existingAttendance = await Attendance.findOne({ questId, eventId });
             if (existingAttendance) {
                 return res.status(400).json({ error: 'User has already attended this event' });
             }
 
-            const newAttendance = new Attendance({ username, eventId });
+            const newAttendance = new Attendance({ questId, eventId });
             await newAttendance.save();
 
             res.status(201).json({ message: 'Attendance marked successfully' });

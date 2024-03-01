@@ -3,7 +3,7 @@
 import mongoose from 'mongoose';
 
 const attendanceSchema = new mongoose.Schema({
-    username: {
+    questId: {
         type: String,
         required: true
     },

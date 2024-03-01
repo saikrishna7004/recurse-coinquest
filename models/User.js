@@ -8,6 +8,11 @@ const userSchema = new mongoose.Schema(
             unique: true,
             required: true,
         },
+        questId: {
+            type: String,
+            unique: true,
+            required: true,
+        },
         name: {
             type: String,
             required: true,
@@ -31,7 +36,7 @@ const userSchema = new mongoose.Schema(
         },
         coins: {
             type: Number,
-            default: 100,
+            default: 0,
         },
         admin: {
             type: Boolean,

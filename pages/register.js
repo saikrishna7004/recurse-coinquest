@@ -13,6 +13,7 @@ const Register = () => {
         name: '',
         password: '',
         year: '',
+        questId: ''
     });
 
     const handleChange = (e) => {
@@ -97,6 +98,18 @@ const Register = () => {
                         className='input'
                         placeholder='Password'
                         value={formData.password}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        id="questId"
+                        name="questId"
+                        className='input'
+                        placeholder='Quest ID'
+                        value={formData.questId}
                         onChange={handleChange}
                         required
                     />

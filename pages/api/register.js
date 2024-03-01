@@ -5,7 +5,7 @@ export default async function registerHandler(req, res) {
     if (req.method === 'POST') {
         try {
 
-            const { username, name, password, year } = req.body;
+            const { username, name, password, year, questId } = req.body;
             await connectMongo();
 
             const existingUser = await User.findOne({ username });
@@ -19,8 +19,7 @@ export default async function registerHandler(req, res) {
                 name,
                 password,
                 year,
-                isAdmin: false,
-                coins: 100,
+                questId
             });
 
             await newUser.save();

@@ -9,10 +9,10 @@ const updateCoinsHandler = async (req, res) => {
     // }
 
     if (req.method === 'POST') {
-        const { username, coins } = req.body;
+        const { questId, coins } = req.body;
 
         try {
-            const user = await User.findOne({ username });
+            const user = await User.findOne({ questId });
 
             if (!user) {
                 return res.status(404).json({ error: 'User not found' });

@@ -42,6 +42,7 @@ const authOptions = {
                 token.ideathonParticipant = user.ideathonParticipant
                 token.ideathonTeamId = user.ideathonTeamId
                 token.admin = user.admin
+                token.questId = user.questId
             }
             return token
         },
@@ -54,6 +55,7 @@ const authOptions = {
             session.user.ideathonParticipant = token.ideathonParticipant
             session.user.ideathonTeamId = token.ideathonTeamId
             session.user.admin = token.admin
+            session.user.questId = token.questId
             return session
         }
     }
