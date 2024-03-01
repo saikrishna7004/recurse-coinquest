@@ -65,6 +65,18 @@ const userSchema = new mongoose.Schema(
     }
 );
 
+// userSchema.pre('save', async function(next) {
+//     try {
+//         const userCount = await this.constructor.countDocuments();
+//         const newQuestId = userCount + 1;
+//         this.questId = newQuestId;
+        
+//         next();
+//     } catch (error) {
+//         next(error);
+//     }
+// });
+
 const User = mongoose.models.User || mongoose.model('User', userSchema);
 
 export default User;
