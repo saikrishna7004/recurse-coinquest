@@ -1,0 +1,24 @@
+/* styles/Dance2.module.css */
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.dancingText {
+    position: absolute;
+    font-size: 24px;
+    color: #000000 !important;
+}
+
+@keyframes dance {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+

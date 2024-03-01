@@ -1,0 +1,26 @@
+/* custom-swal.css */
+.swal2-popup {
+    background-color: #333;
+    /* Dark background color */
+    border-radius: 5px;
+    /* Sharp corners */
+    color: #fff;
+    /* Text color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* Shadow for the popup */
+}
+
+.swal2-title {
+    font-size: 18px;
+    /* Title font size */
+}
+
+.swal2-content {
+    font-size: 16px;
+    /* Content font size */
+}
+
+.swal2-icon {
+    color: #fff;
+    /* Icon color */
+}
