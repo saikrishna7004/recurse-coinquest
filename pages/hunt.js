@@ -37,7 +37,7 @@ const TreasureHunt = () => {
                 <p className="mt-3 mb-4">Find the QR and upload it in the space provided here.</p>
             </div>
             <div className="my-4 p-2">
-                <Link className='button my-3 me-3' href='https://google.com' target="_blank">Check for Hints</Link>
+                <Link className='button my-3 me-3' href='https://drive.google.com/drive/folders/1xRBtZd5NR4FkVM2xVDLNL95i1i8e-01F?usp=sharing' target="_blank">Check for Hints</Link>
                 <Link className='button my-3 me-3' href='/code'>Enter the code</Link>
                 {session && session.user && session.user.admin && <Link className='button my-3' href='/admin/hunt'>Edit Hints</Link>}
             </div>

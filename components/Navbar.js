@@ -55,10 +55,10 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <NavLink href="/" className="nav-link">Home</NavLink>
                             </li>
-                            {/* {session && <>
+                            {session && <>
                                 <li className="nav-item">
                                     <NavLink href="/hunt" className="nav-link">Hunt</NavLink>
-                                </li></>} */}
+                                </li></>}
                             {session && session.user.admin && <>
                                 <li className="nav-item">
                                     <NavLink href="/admin/update-coins" className="nav-link">Update Coins</NavLink>
@@ -70,9 +70,9 @@ const Navbar = () => {
                                     <NavLink href="/leaderboard" className="nav-link">Leaderboard</NavLink>
                                 </li>
                             </>}
-                            {/* <li className="nav-item">
+                            <li className="nav-item">
                                 <NavLink href="/events" className="nav-link">Side Quests</NavLink>
-                            </li> */}
+                            </li>
                         </ul>
                     </div>
                     <div className='me-4 my-2'>
