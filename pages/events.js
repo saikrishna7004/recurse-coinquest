@@ -63,7 +63,7 @@ const Events = () => {
                                 <h4 className="card-title pb-3">{event.name}</h4>
                                 <p className="card-text">ID: {event.eventId}</p>
                                 <p className="card-text">Duration: {event.duration}</p>
-                                <p className="card-text">Prize: {event.coins}</p>
+                                <p className="card-text">Max. Prize: {event.coins}</p>
                                 <p className="card-text">Description: {event.description}</p>
                                 {status === 'authenticated' && attendedEvents.find(item => item == event.eventId) && (
                                     <p className="card-text" style={{ color: 'green' }}>Attended</p>
