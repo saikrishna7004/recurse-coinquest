@@ -14,12 +14,12 @@ export default async function attendanceHandler(req, res) {
         await connectMongo();
 
         try {
-            const existingAttendance = await Attendance.findOne({ username, eventId });
+            const existingAttendance = await Attendance.findOne({ questId: username, eventId });
             if (existingAttendance) {
                 return res.status(400).json({ error: 'User has already attended this event' });
             }
 
-            const newAttendance = new Attendance({ username, eventId });
+            const newAttendance = new Attendance({ questId: username, eventId });
             await newAttendance.save();
 
             res.status(201).json({ message: 'Attendance marked successfully' });

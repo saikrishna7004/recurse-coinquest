@@ -17,6 +17,7 @@ const ProfilePage = () => {
     }, [status]);
 
     const fetchCoins = async () => {
+        if(!session || !session.user || !session.user._id) return;
         try {
             const response = await fetch(`/api/coins/${session?.user?._id}`);
             if (response.ok) {

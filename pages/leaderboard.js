@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 const Leaderboard = () => {
     const [leaderboard, setLeaderboard] = useState([]);
+    const { data: session } = useSession();
 
     useEffect(() => {
         fetchLeaderboard();
@@ -22,6 +23,12 @@ const Leaderboard = () => {
             console.error('Error fetching leaderboard:', error);
         }
     };
+
+    if (!session || !session.user.admin) {
+        return <div className='container text-center'>
+            Unauthorized
+        </div>;
+    }
 
     return (
         <div className="container">

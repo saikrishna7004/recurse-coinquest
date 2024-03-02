@@ -66,12 +66,12 @@ const Navbar = () => {
                                 <li className="nav-item">
                                     <NavLink href="/admin/attendance" className="nav-link">Attendance</NavLink>
                                 </li>
+                                <li className="nav-item">
+                                    <NavLink href="/leaderboard" className="nav-link">Leaderboard</NavLink>
+                                </li>
                             </>}
                             {/* <li className="nav-item">
-                                <NavLink href="/events" className="nav-link">Side Quest</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink href="/leaderboard" className="nav-link">Leaderboard</NavLink>
+                                <NavLink href="/events" className="nav-link">Side Quests</NavLink>
                             </li> */}
                         </ul>
                     </div>

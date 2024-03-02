@@ -19,7 +19,7 @@ const updateCoinsHandler = async (req, res) => {
                 return res.status(404).json({ error: 'User not found' });
             }
 
-            user.coins = coins;
+            user.coins += Number(coins);
             await user.save();
 
             return res.status(200).json({ message: 'User coins updated successfully' });

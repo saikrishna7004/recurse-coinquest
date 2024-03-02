@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import Head from 'next/head';
+import Swal from 'sweetalert2';
 
 const UpdateCoinsPage = () => {
     const [username, setUsername] = useState('');
@@ -23,13 +24,31 @@ const UpdateCoinsPage = () => {
             const data = await response.json();
 
             if (response.ok) {
-                setMessage(data.message);
+                // setMessage(data.message);
+                // Display success swal popup
+                Swal.fire({
+                    icon: 'success',
+                    title: `Updated ${coins} Coins for ${username}`,
+                    text: data.message,
+                });
             } else {
-                setError(data.error || 'Something went wrong');
+                // setError(data.error || 'Something went wrong');
+                // Display error swal popup
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: data.error || 'Something went wrong',
+                });
             }
         } catch (error) {
             console.error('Error updating user coins:', error);
             setError('Internal server error');
+            // Display error swal popup
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Internal server error',
+            });
         }
     };
 
@@ -51,7 +70,7 @@ const UpdateCoinsPage = () => {
                 <input className='input' type="text" name='username' placeholder="Roll No." value={username} onChange={(e) => setUsername(e.target.value.toUpperCase())} />
             </div>
             <div>
-                <input className='input' type="number" name='coins' placeholder="Coins" value={coins} onChange={(e) => setCoins(e.target.value)} />
+                <input className='input' type="number" name='coins' placeholder="Append Coins" value={coins} onChange={(e) => setCoins(e.target.value)} />
             </div>
             <button className='button my-3' onClick={handleUpdateCoins}>Update Coins</button>
         </div>

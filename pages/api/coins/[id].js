@@ -1,8 +1,12 @@
 import User from '../../../models/User';
+import connectMongo from '../../../utils/connectMongo';
 
 export default async function coinsHandler(req, res) {
     const { id } = req.query;
     console.log(id)
+    await connectMongo();
+
+    if(!id) return res.status(404).json({ error: 'Empty User ID' });
     
     try {
         const user = await User.findById(id);

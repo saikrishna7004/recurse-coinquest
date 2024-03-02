@@ -9,7 +9,7 @@ export default async function attendanceHandler(req, res) {
 
         try {
             console.log(req.query.id, "id")
-            const attendedEvents = await Attendance.find({ username: req.query.id });
+            const attendedEvents = await Attendance.find({ questId: req.query.id });
 
             const attendedEventIds = attendedEvents.map(attendance => attendance.eventId);
 
