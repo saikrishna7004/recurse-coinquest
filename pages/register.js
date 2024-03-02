@@ -30,7 +30,7 @@ const Register = () => {
         year: '',
         section: '',
         mobile: '',
-        ideathonParticipant: true
+        ideathonParticipant: false
     });
 
     const handleChange = (e) => {
@@ -38,7 +38,7 @@ const Register = () => {
         const updatedValue = name === 'username' ? value.toUpperCase() : value;
         setFormData((prevData) => ({
             ...prevData,
-            [name]: name === 'ideathonParticipant' ? (value === 'true') : updatedValue,
+            [name]: updatedValue,
         }));
     };
 
@@ -161,7 +161,7 @@ const Register = () => {
                         required
                     />
                 </div>
-                <div>
+                {/* <div>
                     <label htmlFor="ideathonParticipant">Choose one: &nbsp;</label><br />
                     <select
                         id="ideathonParticipant"
@@ -174,7 +174,7 @@ const Register = () => {
                         <option value={true}>Code Auction+Side Quest+Hunt</option>
                         <option value={false}>Side Quest+Treasure Hunt</option>
                     </select>
-                </div>
+                </div> */}
                 <button className='button my-3' type="submit">Register</button>
             </form>
         </div>
