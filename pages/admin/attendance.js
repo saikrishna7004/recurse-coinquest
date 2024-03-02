@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const UpdateAttendance = () => {
     const [eventId, setEventId] = useState('');
-    const [questId, setQuestId] = useState('');
+    const [username, setUsername] = useState('');
     const [acknowledged, setAcknowledged] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const { data: session } = useSession();
@@ -17,7 +17,7 @@ const UpdateAttendance = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ eventId, questId }),
+                body: JSON.stringify({ eventId, username }),
             });
             if (response.ok) {
                 setAcknowledged(true);
@@ -46,7 +46,7 @@ const UpdateAttendance = () => {
                 <title>Update Attendance - CoinQuest</title>
             </Head>
             <h2>Update Event Attendance</h2>
-            {acknowledged && <p style={{ color: 'green' }}>Attendance for Quest ID {questId} has been updated successfully.</p>}
+            {acknowledged && <p style={{ color: 'green' }}>Attendance for Roll No. {username} has been updated successfully.</p>}
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
             <form onSubmit={handleSubmit}>
                 <div className='mt-3'>
@@ -63,11 +63,11 @@ const UpdateAttendance = () => {
                 <div className='mb-3'>
                     <input
                         type='text'
-                        id='questId'
+                        id='username'
                         className='input'
-                        value={questId}
-                        onChange={(e) => setQuestId(e.target.value.toUpperCase())}
-                        placeholder='Quest ID'
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value.toUpperCase())}
+                        placeholder='Roll No.'
                         required
                     />
                 </div>

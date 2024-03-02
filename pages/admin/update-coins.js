@@ -3,7 +3,7 @@ import { useSession } from 'next-auth/react';
 import Head from 'next/head';
 
 const UpdateCoinsPage = () => {
-    const [questId, setQuestId] = useState('');
+    const [username, setUsername] = useState('');
     const [coins, setCoins] = useState(0);
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
@@ -17,7 +17,7 @@ const UpdateCoinsPage = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ questId, coins }),
+                body: JSON.stringify({ username, coins }),
             });
 
             const data = await response.json();
@@ -48,7 +48,7 @@ const UpdateCoinsPage = () => {
             {message && <p style={{ color: 'green' }}>{message}</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <div className='mt-3'>
-                <input className='input' type="text" name='questId' placeholder="Quest ID" value={questId} onChange={(e) => setQuestId(e.target.value.toUpperCase())} />
+                <input className='input' type="text" name='username' placeholder="Roll No." value={username} onChange={(e) => setUsername(e.target.value.toUpperCase())} />
             </div>
             <div>
                 <input className='input' type="number" name='coins' placeholder="Coins" value={coins} onChange={(e) => setCoins(e.target.value)} />

@@ -1,5 +1,5 @@
-import { getSession } from 'next-auth/react';
 import User from '../../../models/User';
+import connectMongo from '../../../utils/connectMongo';
 
 const updateCoinsHandler = async (req, res) => {
     // const session = await getSession({ req });
@@ -7,12 +7,13 @@ const updateCoinsHandler = async (req, res) => {
     // if (!session || !session.user || !session.user.isAdmin) {
     //     return res.status(401).json({ error: 'Unauthorized' });
     // }
+    await connectMongo();
 
     if (req.method === 'POST') {
-        const { questId, coins } = req.body;
+        const { username, coins } = req.body;
 
         try {
-            const user = await User.findOne({ questId });
+            const user = await User.findOne({ username });
 
             if (!user) {
                 return res.status(404).json({ error: 'User not found' });

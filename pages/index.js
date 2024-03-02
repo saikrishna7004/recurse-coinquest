@@ -69,14 +69,14 @@ const ProfilePage = () => {
                     <span className="d-flex align-items-center justify-content-start">{session.user.username}</span>
                 </div>
             </div>
-            <div className="row mt-3">
+            {/* <div className="row mt-3">
                 <div className="col-6">
                     <span className="d-flex align-items-center justify-content-end">Quest ID :</span>
                 </div>
                 <div className="col-6">
                     <span className="d-flex align-items-center justify-content-start">{session.user.questId}</span>
                 </div>
-            </div>
+            </div> */}
             <div className="row mt-3">
                 <div className="col-6">
                     <span className="d-flex align-items-center justify-content-end">Year :</span>

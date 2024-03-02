@@ -1,5 +1,6 @@
 // models/User.js
 import mongoose from 'mongoose';
+// const autoIncrement = require('mongoose-sequence')(mongoose);
 
 const userSchema = new mongoose.Schema(
     {
@@ -67,10 +68,10 @@ const userSchema = new mongoose.Schema(
 
 // userSchema.pre('save', async function(next) {
 //     try {
-//         const userCount = await this.constructor.countDocuments();
-//         const newQuestId = userCount + 1;
-//         this.questId = newQuestId;
-        
+//         if (!this.questId) {
+//             const userCount = await this.constructor.countDocuments();
+//             this.questId = userCount + 1;
+//         }
 //         next();
 //     } catch (error) {
 //         next(error);
