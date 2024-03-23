@@ -36,30 +36,32 @@ const UserTransactions = () => {
     return (
         <div className='container my-4'>
             <h2 className='my-4'>User Transactions for {session?.user?.username}</h2>
-            <table className='table table-dark table-striped table-hover'>
-                <thead>
-                    <tr>
-                        <th>Sender</th>
-                        <th>Receiver</th>
-                        <th>Type</th>
-                        <th>Amount</th>
-                        <th>Balance</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {transactions.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((transaction, index) => (
-                        <tr key={index}>
-                            <td>{transaction.sender}</td>
-                            <td>{transaction.receiver}</td>
-                            <td>{renderTransactionType(transaction)}</td>
-                            <td>{transaction.amount}</td>
-                            <td>{transaction.balance}</td>
-                            <td>{new Date(transaction.createdAt).toLocaleString()}</td>
+            <div style={{overflow: 'auto'}}>
+                <table className='table table-dark table-striped table-hover'>
+                    <thead>
+                        <tr>
+                            <th>Sender</th>
+                            <th>Receiver</th>
+                            <th>Type</th>
+                            <th>Coins</th>
+                            <th>Balance</th>
+                            <th>Date</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {transactions.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((transaction, index) => (
+                            <tr key={index}>
+                                <td>{transaction.sender}</td>
+                                <td>{transaction.receiver}</td>
+                                <td>{renderTransactionType(transaction)}</td>
+                                <td>{transaction.amount}</td>
+                                <td>{transaction.balance}</td>
+                                <td>{new Date(transaction.createdAt).toLocaleString()}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };
