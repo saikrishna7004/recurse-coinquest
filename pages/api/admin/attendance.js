@@ -1,9 +1,18 @@
-// pages/api/attendance.js
-
 import connectMongo from '../../../utils/connectMongo';
 import Attendance from '../../../models/Attendance';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../auth/[...nextauth]';
+import User from '../../models/User';
 
 export default async function attendanceHandler(req, res) {
+    const session = await getServerSession(req, res, authOptions);
+    
+    console.log(session?.user?.username)
+    
+    if (!session || !session.user || !session.user.admin) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
     if (req.method === 'POST') {
         const { username, eventId } = req.body;
 

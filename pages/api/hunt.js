@@ -1,5 +1,6 @@
 import connectMongo from '../../utils/connectMongo';
 import Hint from '../../models/Hint';
+import User from '../../models/User';
 
 export default async function hintSubmissionHandler(req, res) {
     if (req.method === 'POST') {

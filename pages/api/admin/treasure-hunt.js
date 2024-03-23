@@ -1,7 +1,17 @@
 import connectMongo from '../../../utils/connectMongo';
 import Treasure from '../../../models/Treasure';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../auth/[...nextauth]';
 
 export default async function treasureHuntHandler(req, res) {
+    const session = await getServerSession(req, res, authOptions);
+    
+    console.log(session?.user?.username)
+    
+    if (!session || !session.user || !session.user.admin) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
     if (req.method === 'POST') {
         const { riddles } = req.body;
         await connectMongo();

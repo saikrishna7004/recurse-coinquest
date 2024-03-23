@@ -1,7 +1,6 @@
-// pages/api/attendance.js
-
 import connectMongo from '../../utils/connectMongo';
 import Attendance from '../../models/Attendance';
+import User from '../../models/User';
 
 export default async function attendanceHandler(req, res) {
     if (req.method === 'GET') {

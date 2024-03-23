@@ -1,7 +1,6 @@
-// pages/api/solvedTreasures.js
-
 import connectMongo from '../../utils/connectMongo';
 import Hint from '../../models/Hint';
+import User from '../../models/User';
 
 export default async function handler(req, res) {
     await connectMongo();

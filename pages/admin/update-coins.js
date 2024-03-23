@@ -28,7 +28,7 @@ const UpdateCoinsPage = () => {
                 // Display success swal popup
                 Swal.fire({
                     icon: 'success',
-                    title: `Updated ${coins} Coins for ${username}`,
+                    title: `Added ${coins} Coins for ${username}`,
                     text: data.message,
                 });
             } else {
@@ -61,9 +61,9 @@ const UpdateCoinsPage = () => {
     return (
         <div className='container text-center'>
             <Head>
-                <title>Update Coins - CoinQuest</title>
+                <title>Add Coins - CoinQuest</title>
             </Head>
-            <h1>Update User Coins</h1>
+            <h1>Add User Coins</h1>
             {message && <p style={{ color: 'green' }}>{message}</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <div className='mt-3'>
@@ -72,7 +72,7 @@ const UpdateCoinsPage = () => {
             <div>
                 <input className='input' type="number" name='coins' placeholder="Append Coins" value={coins} onChange={(e) => setCoins(e.target.value)} />
             </div>
-            <button className='button my-3' onClick={handleUpdateCoins}>Update Coins</button>
+            <button className='button my-3' onClick={handleUpdateCoins}>Add Coins</button>
         </div>
     );
 };

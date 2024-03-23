@@ -1,5 +1,3 @@
-// pages/api/userCounts.js
-
 import connectMongo from '../../utils/connectMongo';
 import User from '../../models/User';
 

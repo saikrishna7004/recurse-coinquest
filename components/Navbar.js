@@ -58,7 +58,11 @@ const Navbar = () => {
                             {session && <>
                                 <li className="nav-item">
                                     <NavLink href="/hunt" className="nav-link">Hunt</NavLink>
-                                </li></>}
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink href="/transactions" className="nav-link">Transactions</NavLink>
+                                </li></>
+                                }
                             {session && session.user.admin && <>
                                 <li className="nav-item">
                                     <NavLink href="/admin/update-coins" className="nav-link">Update Coins</NavLink>
