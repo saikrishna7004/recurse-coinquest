@@ -56,7 +56,7 @@ const Login = ({login}) => {
             <div className="container my-4 h-100">
             <main className="form-signin text-center">
                 <form onSubmit={handleSubmit}>
-                    <Image className="mb-2" src='/Nexus_Logo.png' alt="Logo" width={250} height={250} />
+                    <Image className="my-4" src='/Nexus_Logo.png' alt="Logo" width={250} height={125.5} />
                     <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
                     <div className="my-2">
                         <input type="text" name="username" className="input" id="username" placeholder="Roll No." value={username} onChange={e => setusername(e.target.value.toUpperCase())} autoComplete="username" />

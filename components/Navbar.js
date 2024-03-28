@@ -46,7 +46,7 @@ const Navbar = () => {
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <Link href="/" className="navbar-brand"><img src="/Nexus_Logo.png" alt="Recurse Logo" height={70} /></Link>
+                    <Link href="/" className="navbar-brand"><img src="/Nexus_Logo.png" alt="Recurse Logo" height={50} /></Link>
                     <Link href="/" className="navbar-brand"><img src="/recurse logo white.png" alt="Recurse Logo" height={50} /></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
                         <span className="navbar-toggler-icon"></span>
