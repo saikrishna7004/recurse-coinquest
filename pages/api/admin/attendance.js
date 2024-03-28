@@ -2,7 +2,7 @@ import connectMongo from '../../../utils/connectMongo';
 import Attendance from '../../../models/Attendance';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../auth/[...nextauth]';
-import User from '../../models/User';
+import User from '../../../models/User';
 
 export default async function attendanceHandler(req, res) {
     const session = await getServerSession(req, res, authOptions);
