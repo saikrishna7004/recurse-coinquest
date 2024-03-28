@@ -7,33 +7,34 @@ import { authOptions } from '../auth/[...nextauth]';
 const updateCoinsHandler = async (req, res) => {
     const session = await getServerSession(req, res, authOptions);
     
-    console.log(session?.user?.username)
-    
     if (!session || !session.user || !session.user.admin) {
         return res.status(401).json({ error: 'Unauthorized' });
     }    
+
     await connectMongo();
 
     if (req.method === 'POST') {
         const { username, coins } = req.body;
 
         try {
-            console.log(username, session.user.username)
-            
-            const user = await User.findOne({ username });
+            let user = await User.findOne({ username });
 
             if (!user) {
-                return res.status(404).json({ error: 'User not found' });
+                user = new User({
+                    username,
+                    coins: Number(coins)
+                });
+            } else {
+                user.coins += Number(coins);
             }
 
-            user.coins += Number(coins);
             await user.save();
 
             const transaction = new Transaction({
-                sender: session?.user?.username,
+                sender: session.user.username,
                 receiver: username,
                 amount: Number(coins),
-                balance: user?.coins
+                balance: user.coins
             });
             await transaction.save();
 

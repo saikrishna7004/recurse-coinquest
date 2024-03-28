@@ -31,11 +31,11 @@ const Leaderboard = () => {
         setPage(pageNumber);
     };
 
-    if (!session || !session.user.admin) {
-        return <div className='container text-center'>
-            Unauthorized
-        </div>;
-    }
+    // if (!session || !session.user.admin) {
+    //     return <div className='container text-center'>
+    //         Unauthorized
+    //     </div>;
+    // }
 
     const paginationRange = Array.from(
         { length: Math.min(totalPages, 5) },
@@ -53,7 +53,7 @@ const Leaderboard = () => {
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Name</th>
+                            {/* <th scope="col">Name</th> */}
                             <th scope="col">Username</th>
                             <th scope="col">Coins</th>
                         </tr>
@@ -63,7 +63,7 @@ const Leaderboard = () => {
                             leaderboard.map((user, index) => (
                                 <tr key={index}>
                                     <th scope="row">{((page - 1) * 10) + (index + 1)}</th>
-                                    <td>{user.name}</td>
+                                    {/* <td>{user.name}</td> */}
                                     <td>{user.username}</td>
                                     <td>{user.coins}</td>
                                 </tr>

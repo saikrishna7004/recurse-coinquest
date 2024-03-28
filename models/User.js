@@ -9,48 +9,15 @@ const userSchema = new mongoose.Schema(
             unique: true,
             required: true,
         },
-        questId: {
-            type: Number,
-        },
         name: {
             type: String,
-            required: true,
+            default: 'Nexus User',
+            required: true
         },
         password: {
             type: String,
-            required: true,
-        },
-        year: {
-            type: Number,
-            required: true,
-            enum: [1, 2, 3, 4],
-        },
-        section: {
-            type: String,
-            required: true,
-            enum: [
-                'CSE A',
-                'CSE B',
-                'CSE C',
-                'CSE D',
-                'CSE E',
-                'CSE F',
-                'CSE G',
-                'CSM A',
-                'CSM B',
-                'CSM C',
-                'IT A',
-                'IT B',
-                'CSD',
-            ],
-        },
-        mobile: {
-            type: String,
-            required: true,
-        },
-        ideathonParticipant: {
-            type: Boolean,
-            default: false,
+            default: 'password',
+            required: true
         },
         coins: {
             type: Number,

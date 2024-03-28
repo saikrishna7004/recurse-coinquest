@@ -46,6 +46,7 @@ const Navbar = () => {
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
+                    <Link href="/" className="navbar-brand"><img src="/Nexus_Logo.png" alt="Recurse Logo" height={70} /></Link>
                     <Link href="/" className="navbar-brand"><img src="/recurse logo white.png" alt="Recurse Logo" height={50} /></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
                         <span className="navbar-toggler-icon"></span>
@@ -53,29 +54,29 @@ const Navbar = () => {
                     <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} ref={navRef}>
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
-                                <NavLink href="/" className="nav-link">Home</NavLink>
+                                <NavLink href="/" className="nav-link">Check Coins</NavLink>
                             </li>
-                            {session && <>
+                            {/* {session && <>
                                 <li className="nav-item">
                                     <NavLink href="/hunt" className="nav-link">Hunt</NavLink>
                                 </li>
+                            } */}
+                            {session && session.user.admin && <>
                                 <li className="nav-item">
                                     <NavLink href="/transactions" className="nav-link">Transactions</NavLink>
-                                </li></>
-                                }
-                            {session && session.user.admin && <>
+                                </li>
                                 <li className="nav-item">
                                     <NavLink href="/admin/update-coins" className="nav-link">Update Coins</NavLink>
                                 </li>
-                                <li className="nav-item">
+                                {/* <li className="nav-item">
                                     <NavLink href="/admin/attendance" className="nav-link">Attendance</NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink href="/leaderboard" className="nav-link">Leaderboard</NavLink>
-                                </li>
+                                </li> */}
                             </>}
                             <li className="nav-item">
-                                <NavLink href="/events" className="nav-link">Side Quests</NavLink>
+                                <NavLink href="/leaderboard" className="nav-link">Leaderboard</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink href="/events" className="nav-link">Events</NavLink>
                             </li>
                         </ul>
                     </div>
@@ -83,7 +84,7 @@ const Navbar = () => {
                         {session?.user.name} {session?.user.admin ? 'Admin' : ''}
                     </div>
                     {status != "loading" && !session && <div className="nav-item me-4">
-                        <NavLink className="nav-link" href={(router.asPath.indexOf('/login') > -1) ? router.asPath : ("/login?next=" + router.asPath)}>Login</NavLink>
+                        {/* <NavLink className="nav-link" href={(router.asPath.indexOf('/login') > -1) ? router.asPath : ("/login?next=" + router.asPath)}>Login</NavLink> */}
                     </div>}
                     {session && <div className="nav-item me-4">
                         <NavLink className="nav-link" href="/api/auth/signout" onClick={(e) => {

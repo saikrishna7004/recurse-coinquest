@@ -36,6 +36,7 @@ export default async function handler(req, res) {
         case 'DELETE':
             try {
                 const { id } = req.query;
+                console.log(id)
                 await Event.findByIdAndDelete(id);
                 res.status(200).json({ message: 'Event deleted successfully' });
             } catch (error) {
